@@ -288,7 +288,7 @@ public class Function extends Pointer {
         Method invokingMethod = (Method)options.get(OPTION_INVOKING_METHOD);
         Class[] paramTypes = invokingMethod != null ? invokingMethod.getParameterTypes() : null;
         boolean allowObjects = Boolean.TRUE.equals(options.get(Library.OPTION_ALLOW_OBJECTS));
-        boolean isVarArgs = args.length > 0 && invokingMethod != null ? isVarArgs(invokingMethod) : false;
+        boolean isVarArgs = args.length > 0 && invokingMethod != null ?  invokingMethod.isVarArgs() /*isVarArgs(invokingMethod)*/ : false;
         for (int i=0; i < args.length; i++) {
             Class paramType = invokingMethod != null
                 ? (isVarArgs && i >= paramTypes.length-1
